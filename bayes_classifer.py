@@ -25,7 +25,7 @@ scale_S=float(scale_S)
 P_gamma_greater_than_60_D=  1 - scipy.stats.norm(loc_D, scale_D).cdf(60)
 P_gamma_greater_than_60_S=  1 - scipy.stats.norm(loc_S, scale_S).cdf(60)
 
-P_D_gamma_greater_than_60= (P_D*P_gamma_greater_than_60_D)/(P_D*P_gamma_greater_than_60_D) + (P_S*P_gamma_greater_than_60_S)
+P_D_gamma_greater_than_60= (P_D*P_gamma_greater_than_60_D)/((P_D*P_gamma_greater_than_60_D) + (P_S*P_gamma_greater_than_60_S))
 
 if P_D_gamma_greater_than_60 >= 0.5:
                            print('𝑃(𝐷|𝑔𝑎𝑚𝑚𝑎 > 60)=',P_D_gamma_greater_than_60)
